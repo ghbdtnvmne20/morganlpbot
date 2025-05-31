@@ -27,6 +27,7 @@ from typing import Dict
 from telethon.tl.types import ChannelParticipantsAdmins, ChannelParticipantCreator, ChannelParticipantAdmin, User
 from telethon.errors.rpcerrorlist import ChatAdminRequiredError
 import requests
+from flask import Flask, request
 
 
 # --- ВАЖНО: НАСТРОЙТЕ ВАШИ АККАУНТЫ НИЖЕ ---
@@ -45,6 +46,7 @@ last_message_times = {}
 COMMAND_COOLDOWN = 5
 AUTOREPLY_FILE = 'autoreplies.json'
 MY_USER_ID = 812717808 # Изначально None, будет установлено при старте
+app = Flask(__name__)
 
 clients = []
 for acc in ACCOUNTS:
@@ -3305,6 +3307,7 @@ async def main():
     await asyncio.gather(*tasks)
 
 if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
     print("Запуск многопользовательского юзербота...")
     try:
         asyncio.run(main())
@@ -3312,3 +3315,4 @@ if __name__ == '__main__':
         print("Многопользовательский юзербот остановлен пользователем.")
     except Exception as e:
         print(f"Произошла непредвиденная ошибка: {e}")
+        
