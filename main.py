@@ -29,14 +29,6 @@ from telethon.errors.rpcerrorlist import ChatAdminRequiredError
 import requests
 from flask import Flask, request
 
-
-# --- ВАЖНО: НАСТРОЙТЕ ВАШИ АККАУНТЫ НИЖЕ ---
-ACCOUNTS = [
-    {
-        'api_id': 29564997,  # Замените на API ID вашего первого аккаунта
-        'api_hash': '435acfcb83c05255fdfcba6fffb3e11c',  # Замените на API Hash вашего первого аккаунта
-        'session_name': 'my_userbot_session' # Уникальное имя сессии для первого аккаунта
-    }
 ]
 MISTRAL_API_KEY = "zuqIvHaKX3Lg3oWM6UF6uFHVT047g3t5"
 REPLICATE_API_TOKEN = "r8_CuZy4cz7qVfvTe3qh2ZSu42F7UsFgNM4GvkcD"
